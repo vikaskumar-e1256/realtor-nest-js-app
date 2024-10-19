@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "b1a6b17e-35c0-4a6b-8b5c-3774976775b0",
+		"name": "Nest-Realtour",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30799594"
+	},
+	"item": [
+		{
+			"name": "Homes",
+			"item": [
+				{
+					"name": "get all homes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/home?propertyType=RESIDENTIAL&minPrice=300&maxPrice=400&city=kandla",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"home"
+							],
+							"query": [
+								{
+									"key": "propertyType",
+									"value": "RESIDENTIAL"
+								},
+								{
+									"key": "minPrice",
+									"value": "300"
+								},
+								{
+									"key": "maxPrice",
+									"value": "400"
+								},
+								{
+									"key": "city",
+									"value": "kandla"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get home by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/home/1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"home",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create home",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVmlrYXMiLCJpZCI6MywiaWF0IjoxNzI5MzQ1OTU0LCJleHAiOjE3MjkzNDk1NTR9.pP4dmPb6uWRZCivV1zAc1A_fZmqgMvuI4FwDo8G8NqI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\": \"Chandigarh\",\n    \"numberOfBedrooms\": 3,\n    \"numberOfBathrooms\": 5,\n    \"city\": \"Chandigarh\",\n    \"price\": 5200233,\n    \"landSize\": 4,\n    \"propertyType\": \"RESIDENTIAL\",\n    \"images\": [{ \"url\": \"odoadsodsa\" },{ \"url\": \"kldfsjk\" }]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/home",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update home",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\": \"Chandigarh\",\n    \"numberOfBedrooms\": 3,\n    \"numberOfBathrooms\": 5,\n    \"city\": \"Huston\",\n    \"price\": 5200233,\n    \"landSize\": 4,\n    \"propertyType\": \"RESIDENTIAL\",\n    \"images\": [{ \"url\": \"odoadsodsa\" },{ \"url\": \"kldfsjk\" }]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/home/1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"home",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete home",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/home/5",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"home",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Vikas\",\n    \"email\": \"vikas2@gmail.com\",\n    \"phone\": \"1234567890\",\n    \"password\": \"12345\",\n    \"productKey\": \"$2a$10$FO0ZVFloE325tnqDFQpEB.bIy9igAH5edOAWvQnJyX6MmGsL8e4li\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/auth/signup/REALTOR",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"signup",
+								"REALTOR"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"vikas2@gmail.com\",\n    \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/auth/signin",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generate-product-key",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"vikas2@gmail.com\",\n    \"type\": \"REALTOR\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/auth/key",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"auth",
+								"key"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
